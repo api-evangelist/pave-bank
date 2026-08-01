@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: probed
+source: live probes of /.well-known/ on Pave Bank hosts
+hosts_probed: [api.pavebank.com, docs.pavebank.com, pavebank.com]
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+notes:
+- No /.well-known documents are published on api.pavebank.com or docs.pavebank.com. pavebank.com returns a 307 locale redirect (to /en/.well-known/*) rather than a real document. No WellKnown pointer wired (no 200 hits).

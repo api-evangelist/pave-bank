@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs/auth
+docs: https://docs.pavebank.com/docs/auth
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  access_model: role-based
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url: https://api.pavebank.com/oauth2/token
+  token_request: grant_type=client_credentials&audience=developer
+  client_auth: http_basic
+  token_use: 'Authorization: Bearer <access_token>'
+  sources: [https://docs.pavebank.com/docs/auth]
+roles:
+- name: admin
+  description: Full read and write access. Can perform all API operations including transfers, account creation, and webhook configuration.
+- name: viewer
+  description: Read-only access. Can view accounts, balances, transactions, and other resources but cannot create or modify them. Unauthorized write attempts return PERMISSION_DENIED.
+request_signing:
+  supported: true
+  type: JWT
+  applies_to: mutating operations
+  note: Optional JWT-based request payload signing for mutating operations, for compliance and request integrity verification.
+notes:
+- Pave Bank uses OAuth 2.0 client credentials (server-to-server); no traditional OAuth scopes — access is governed by admin/viewer roles assigned when credentials are created.
+- Base API URL is https://api.pavebank.com/v1/.

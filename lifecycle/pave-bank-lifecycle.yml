@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs/auth
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.pavebank.com/v1/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No public deprecation/sunset policy found in the docs.
+sla:
+  url: null
+  note: No public SLA / uptime target found.
+status_page: null
+notes:
+- Partner API is versioned in the URI path (v1). No public status page or changelog was found at the time of enrichment.

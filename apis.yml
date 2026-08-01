@@ -1,7 +1,27 @@
 aid: pave-bank
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pave-bank.png
 name: Pave Bank
-description: 'Pave Bank is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting the enrichment pipeline.'
+description: 'Pave Bank is a licensed, regulated digital bank (National Bank of Georgia,
+  License 305) delivering multi-asset, programmable banking. Its Partner API lets developers
+  open and manage accounts, initiate domestic and cross-border transfers, execute FX,
+  hold and move 29 fiat currencies plus digital assets (USDT, USDC, BTC, ETH), read
+  real-time balances and transaction history, generate bank statements, and receive
+  signed real-time webhooks. Pave positions itself as an "operating system for money"
+  with an app-and-API programmability model built on a first-party Go Application Development
+  Kit (PDK). Authentication is OAuth 2.0 client credentials with role-based access;
+  requests support idempotency keys and optional JWT payload signing.'
 url: https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,16 +31,83 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Fintech
-apis: []
+- Banking
+- Payments
+- Digital Assets
+- Stablecoins
+- Cross-Border Payments
+- Programmable Money
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Pave Bank Partner API
+  description: 'Partner API for programmable multi-asset banking: Accounts, Address,
+    Balance, Crypto, Documents, FX, Return, RFI, Sandbox, Statement, Transactions,
+    and Transfer resources, plus real-time signed webhooks.'
+  humanURL: https://docs.pavebank.com
+  baseURL: https://api.pavebank.com/v1/
+  tags:
+  - Banking
+  - Payments
+  - Digital Assets
+  properties:
+  - type: Documentation
+    url: https://docs.pavebank.com/docs
+  - type: Authentication
+    url: authentication/pave-bank-authentication.yml
 common:
 - type: Website
   url: https://pavebank.com/en
+- type: DeveloperPortal
+  url: https://docs.pavebank.com
+- type: Documentation
+  url: https://docs.pavebank.com/docs
+- type: APIReference
+  url: https://docs.pavebank.com
+- type: GettingStarted
+  url: https://docs.pavebank.com/docs
+- type: Authentication
+  url: authentication/pave-bank-authentication.yml
+- type: Conventions
+  url: conventions/pave-bank-conventions.yml
+- type: Idempotency
+  url: conventions/pave-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/pave-bank-error-codes.yml
+- type: Webhooks
+  url: asyncapi/pave-bank-webhooks.yml
+- type: Packages
+  url: packages/pave-bank-packages.yml
+- type: SDKs
+  url: packages/pave-bank-packages.yml
+- type: Conformance
+  url: conformance/pave-bank-conformance.yml
+- type: Compliance
+  url: conformance/pave-bank-conformance.yml
+- type: Sandbox
+  url: sandbox/pave-bank-sandbox.yml
+- type: Lifecycle
+  url: lifecycle/pave-bank-lifecycle.yml
+- type: LLMsTxt
+  url: llms/pave-bank-llms.txt
+- type: DomainSecurity
+  url: security/pave-bank-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/pavebank
+- type: PrivacyPolicy
+  url: https://pavebank.com/en/legal?tab=privacy-policy
+- type: Login
+  url: https://app.pavebank.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1

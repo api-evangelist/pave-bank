@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs
+docs: https://docs.pavebank.com/docs
+authentication:
+  style: oauth2-client-credentials
+  bearer: true
+  docs: https://docs.pavebank.com/docs/auth
+  ref: authentication/pave-bank-authentication.yml
+idempotency:
+  supported: true
+  scope: per-client (keys isolated per client)
+  ttl: 24h
+  behavior: First request with an idempotency key creates the transaction and returns a TransactionID; subsequent identical requests return the same TransactionID. A request reusing the key with different fields does not create or update a transaction. On an idempotency failure the client receives an error and should cease retries and contact its integration partner.
+  docs: https://docs.pavebank.com/docs/idempotency
+error_envelope:
+  format: custom
+  rfc9457: false
+  shape: '{ "error": { "code": "<HTTP_STATUS_CODE>", "status": "<ERROR_STATUS>", "message": "<ERROR_MESSAGE>" } }'
+  docs: https://docs.pavebank.com/docs/error-reference
+  ref: errors/pave-bank-error-codes.yml
+webhooks:
+  supported: true
+  signature_header: 'Pave-Signature: t={timestamp},v1={signature}'
+  signature_alg: ECDSA with SHA-256
+  verification: Concatenate raw response body with timestamp, validate Base64 signature against the environment public key; process body as a raw buffer (no JSON re-serialization).
+  retry: exponential backoff 10s -> 20s -> 40s -> 80s (capped 10 min) for up to 72 hours; requires 2xx to acknowledge.
+  docs: https://docs.pavebank.com/docs/webhooks
+  ref: asyncapi/pave-bank-webhooks.yml
+currency_units:
+  representation: minor units per currency decimal structure
+  example: USD $10.00 = 1000; 1 BTC = 100000000
+  docs: https://docs.pavebank.com/docs/currencies
+field_validation:
+  docs: https://docs.pavebank.com/docs/field-validation
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/pave-bank-lifecycle.yml
+notes:
+- Purpose-of-payment codes and RFI (Request for Information) flows are documented cross-cutting concerns.

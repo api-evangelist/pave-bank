@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs/error-reference
+docs: https://docs.pavebank.com/docs/error-reference
+format: custom
+rfc9457: false
+envelope: '{ "error": { "code": "<HTTP_STATUS_CODE>", "status": "<ERROR_STATUS>", "message": "<ERROR_MESSAGE>" } }'
+errors:
+- status: 400
+  title: Bad Request
+  meaning: Request contains invalid data or is missing required information.
+- status: 401
+  title: Unauthorized
+  meaning: Authentication token is missing, invalid, or expired.
+- status: 403
+  title: Permission Denied
+  code: PERMISSION_DENIED
+  meaning: Insufficient permissions to perform this action.
+- status: 404
+  title: Not Found
+  meaning: The requested resource does not exist.
+- status: 409
+  title: Conflict
+  meaning: Request conflicts with an existing operation (e.g., duplicate idempotency key).
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit has been exceeded for this API.
+- status: 500
+  title: Internal Server Error
+  meaning: An internal server error occurred; retry or contact support.

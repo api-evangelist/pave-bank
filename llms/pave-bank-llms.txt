@@ -1,0 +1,38 @@
+# Pave Bank
+
+> Pave Bank is a licensed, regulated digital bank (National Bank of Georgia, License 305) offering multi-asset, programmable banking across 29 fiat currencies and 4 digital assets (USDT, USDC, BTC, ETH). Its Partner API lets developers create and manage accounts, initiate transfers, access real-time balances, fetch transaction history, generate bank statements, and receive real-time webhooks. Pave positions itself as an "operating system for money" with an app-and-API programmability model built on a Go Application Development Kit (PDK).
+
+## APIs
+- [Partner API Reference](https://docs.pavebank.com): Accounts, Address, Balance, Crypto, Documents, FX, Return, RFI, Sandbox, Statement, Transactions, Transfer. Base URL https://api.pavebank.com/v1/.
+
+## Authentication
+- [Authentication](https://docs.pavebank.com/docs/auth): OAuth 2.0 client credentials at https://api.pavebank.com/oauth2/token; roles admin (read/write) and viewer (read-only); optional JWT request-payload signing for mutating operations.
+
+## Guides
+- [Idempotency](https://docs.pavebank.com/docs/idempotency): idempotency keys, per-client isolation, 24h TTL.
+- [Webhooks](https://docs.pavebank.com/docs/webhooks): Transaction and RFI events; ECDSA/SHA-256 Pave-Signature verification; retry with backoff up to 72h.
+- [Currencies](https://docs.pavebank.com/docs/currencies): 29 fiat + USDT/USDC/BTC/ETH, amounts in minor units.
+- [Error Reference](https://docs.pavebank.com/docs/error-reference): custom { error: { code, status, message } } envelope; 400/401/403/404/409/429/500.
+- [Purpose of Payment Codes](https://docs.pavebank.com/docs/purpose-of-payment-codes)
+- [Field Validation](https://docs.pavebank.com/docs/field-validation)
+- [Request for Information (RFI)](https://docs.pavebank.com/docs/rfi)
+- [Transfer Volume Checks](https://docs.pavebank.com/docs/transfer-volume-checks)
+
+## SDKs & Tooling
+- [pdk-go](https://github.com/pavebank/pdk-go): Pave Application Development Kit (Go), first-party.
+- [GitHub organization](https://github.com/pavebank)
+
+## Artifacts (API Evangelist)
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/authentication/pave-bank-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/conventions/pave-bank-conventions.yml)
+- [Error codes](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/errors/pave-bank-error-codes.yml)
+- [Webhooks](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/asyncapi/pave-bank-webhooks.yml)
+- [Packages](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/packages/pave-bank-packages.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/pave-bank/refs/heads/main/conformance/pave-bank-conformance.yml)
+
+## Company
+- [Website](https://pavebank.com/en)
+- [Programmability](https://pavebank.com/en/programmability)
+- [Products](https://pavebank.com/en/products)
+- [Legal & Privacy](https://pavebank.com/en/legal)
+- [Login](https://app.pavebank.com)

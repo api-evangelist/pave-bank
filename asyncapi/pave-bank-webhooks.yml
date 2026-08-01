@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs/webhooks
+docs: https://docs.pavebank.com/docs/webhooks
+type: Webhooks
+delivery:
+  transport: HTTP POST to configured URL
+  ack: requires 2xx response
+  retry: exponential backoff 10s -> 20s -> 40s -> 80s (capped at 10 min), for up to 72 hours
+  configuration: Webhook URL is set via the Update Webhook URL endpoint (sandbox mode).
+signature:
+  header: 'Pave-Signature: t={timestamp},v1={signature}'
+  algorithm: ECDSA with SHA-256
+  encoding: Base64
+  verification: Reconstruct the signed payload by concatenating the raw response body with the timestamp, then validate against the environment public key. The body must be processed as a raw buffer; JSON parsing or transformation breaks verification.
+events:
+- name: Transaction
+  description: Triggered when transactions are created or transition between statuses. Each unique status of a transaction triggers at most one webhook (no duplicates for the same status).
+  payload_example: '{ "transaction_id": "transaction_b3mz0xppufvytxggtu7h09xb01" }'
+- name: RFI
+  description: Request for Information event. See the RFI documentation for payload format and examples.
+  docs: https://docs.pavebank.com/docs/rfi

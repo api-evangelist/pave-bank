@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs/webhooks
+docs: https://docs.pavebank.com
+environments:
+  live:
+    base_url: https://api.pavebank.com/v1/
+  sandbox:
+    description: Pave Bank exposes a dedicated Sandbox in the API reference and a sandbox mode for testing integrations.
+    api_reference_section: Sandbox
+    capabilities:
+    - Configure the webhook receiver URL (Update Webhook URL endpoint is available in sandbox mode).
+    - Exercise transaction and RFI webhook flows against test transactions.
+signature_verification:
+  note: Signature verification uses an environment-specific public key; the sandbox environment has its own public key distinct from live.
+notes:
+- No published magic test card numbers / test IBANs were found in the public docs; Pave provisions sandbox credentials to onboarded partners. No test values are fabricated here.

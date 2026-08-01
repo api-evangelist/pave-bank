@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.pavebank.com/docs
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 client credentials flow at https://api.pavebank.com/oauth2/token (docs/auth)
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery or id_token; role-based access, not OIDC.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Custom error envelope { error: { code, status, message } }, not application/problem+json.'
+- id: idempotency
+  conforms: true
+  evidence: Idempotency keys with 24h TTL, per-client isolation (docs/idempotency)
+- id: iso20022
+  conforms: true
+  evidence: Pave maintains a first-party ISO 20022 Go library (github.com/pavebank/iso20022) and operates as a licensed bank handling cross-border payments; purpose-of-payment codes documented.
+- id: webhook-signing
+  conforms: true
+  evidence: ECDSA/SHA-256 signed webhooks via Pave-Signature header (docs/webhooks)
+compliance:
+  regulator: National Bank of Georgia
+  license_number: '305'
+  note: Licensed and regulated by the National Bank of Georgia (License Number 305).

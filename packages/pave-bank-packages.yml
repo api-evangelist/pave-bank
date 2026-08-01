@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pavebank
+packages:
+- language: go
+  registry: github
+  name: pdk-go
+  url: https://github.com/pavebank/pdk-go
+  module: github.com/pavebank/pdk-go
+  install: go get github.com/pavebank/pdk-go
+  description: Pave Application Development Kit (PDK) for Go — first-party toolkit for building programmable "pave applications" on the Pave Bank platform.
+  latest: v0.0.3
+  official: true
+notes:
+- Pave Bank publishes first-party Go tooling under github.com/pavebank (pdk-go ADK, paveapps examples). No npm/PyPI/Maven client libraries were found.
+- The platform is "app and API powered" (programmability model) — code apps are built with the PDK in Go.
